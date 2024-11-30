@@ -1,22 +1,173 @@
-* {
+body {
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  background-color: #f5f5f5;
 }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.5;
+.auth-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.auth-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  margin-bottom: 16px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
   color: #333;
 }
 
-h1 {
-  font-size: 32px;
-  margin-bottom: 24px;
+.button {
+  padding: 15px 100px;
+  border: none;
+  border-radius: 8px;
+  font-size: 30px;
+  cursor: pointer;
 }
 
-h2 {
-  font-size: 24px;
+.button.primary {
+  background-color: #E94E35;
+  color: white;
+  padding: 10px 70px;
+  border: none;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.loginButton{
+  display: flex;
+  justify-content: center;
+}
+
+.button.done {
+  background-color: #4CAF50; /* Зеленый цвет для кнопки "Готово" */
+  color: white;
+  padding: 10px 20px; /* Уменьшенный размер кнопки */
+  font-size: 16px; /* Уменьшенный размер шрифта */
+  position: absolute; /* Позиционирование кнопки */
+  bottom: 60px; /* Отступ снизу */
+  right: 40px; /* Отступ справа */
+}
+
+.editor {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 30px;
+}
+
+.params-sidebar {
+  background-color: #F5F5F5;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.preview-area {
+  background-color: #F5F5F5;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.upload-zone {
+  text-align: center;
+  padding: 40px;
+}
+
+.upload-icon {
   margin-bottom: 20px;
+}
+
+.file-types {
+  display: block;
+  margin-top: 10px;
+  color: #666;
+  font-size: 14px;
+}
+
+.image-preview {
+  margin-bottom: 20px;
+}
+
+.preview-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.upload-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.image-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.image-container {
+  position: relative;
+  width: 100px; /* Уменьшите размер по вашему усмотрению */
+  height: 100px; /* Уменьшите размер по вашему усмотрению */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.close-icon {
+  width: 9px;
+  height: 9px;
+}
+
+.file-icon {
+  width: 90px;
+  height: 90px;
+}
+
+.preview-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover; /* Это свойство предотвращает сжатие изображения */
+}
+
+.remove-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.max-images-message {
+  color: red;
+  margin-top: 10px;
 }

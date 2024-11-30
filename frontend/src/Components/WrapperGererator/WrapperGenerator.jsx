@@ -193,12 +193,15 @@ export default function WrapperGenerator() {
                   <img className="file-icon" src="/public/file icons.png" alt="" />
                 </div>
               )}
-              <button 
-                className="button primary"
-                onClick={handleClick}
-              >
-                Выберите файл
-              </button>
+
+              <div>
+                  <button 
+                    className="button primary"
+                    onClick={handleClick}
+                  >
+                    Выберите файл
+                  </button>
+              </div>
               {imageUrls.length < 5 && (
                 <span className="file-types">png, jpeg</span>
               )}
