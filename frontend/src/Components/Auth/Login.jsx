@@ -1,37 +1,50 @@
-import React, { useState } from 'react'
-import axios from 'axios'
+import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import './Login.css';
 
 const Login = () => {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
-      const response = await axios.post('/api/login', { username, password })
-      console.log('Login successful:', response.data)
-      // Здесь можно добавить логику для сохранения токена и перенаправления на другую страницу
+      const response = await axios.post('http://localhost:8080/auth/signin', {
+        username,
+        password,
+      });
+      console.log('Login successful:', response.data);
+      // Сохранение токена в localStorage
+      localStorage.setItem('token', response.data);
+      // Перенаправление на страницу генератора после успешного входа
+      navigate('/generator');
     } catch (error) {
-      console.error('Login failed:', error)
-      alert('Login failed. Please check your credentials.')
+      console.error('Login failed:', error.response ? error.response.data : error.message);
+      alert('Login failed. Please check your credentials.');
     }
-  }
+  };
+
+  const handleRegisterClick = () => {
+    navigate('/register');
+  };
 
   return (
     <div className="auth-container">
-      <h2>Login</h2>
+      <h2>Авторизация</h2>
       <form onSubmit={handleSubmit}>
         <div className="input-group">
-          <label>Username</label>
+          <label>Логин</label>
           <input
-            type="username"
+            type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
           />
         </div>
         <div className="input-group">
-          <label>Password</label>
+          <label>Пароль</label>
           <input
             type="password"
             value={password}
@@ -39,12 +52,19 @@ const Login = () => {
             required
           />
         </div>
-        <div className='loginButton'>
-          <button type="submit" className="button primary">Login</button>
+        <div className="loginButton">
+          <button type="submit" className="button primary">
+            Авторизоваться
+          </button>
         </div>
       </form>
+      <div className="register-link">
+        <button onClick={handleRegisterClick} className="button secondary">
+          Зарегистрироваться
+        </button>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
