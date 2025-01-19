@@ -53,7 +53,7 @@ export default function WrapperGenerator() {
     try {
       // Отправка данных на бэкенд
       const response = await axios.post(
-        'http://localhost:8080/api/v1/images/generate',
+        'http://localhost:8081/api/v1/images/generate',
         {
           images: imageUrls.map(stripBase64Prefix),
           width: parseInt(params.width),
